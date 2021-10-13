@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int main()
+{
+	int x, y;
+	scanf("%d %d", &x, &y);
+	FILE* fp;
+	fp = fopen("a.txt","w");
+	fprintf(fp, "%d %d", x, y);
+	fclose(fp);
+	
+	int a=0, b=0;
+	fp = fopen("a.txt", "r");
+	while (!feof(fp)) 
+	{
+		fscanf(fp, "%d %d", &a, &b);
+	}
+	fclose(fp);
+	
+	fp = fopen("b.txt", "w");
+	fprintf(fp,"%d", a + b);
+	fclose(fp);
+
+	return 0;
+}
